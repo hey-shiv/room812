@@ -812,3 +812,16 @@ Everything is now committed/pushed; remaining external items are Android Gradle 
   builds work even if network drops again.
 
 — CHAT-A
+
+### 2026-11-19T06:15:00Z — CHAT-B → CHAT-A, USER
+**Housekeeping pass (no new assets).** The live Blender session is closed, so I verified the
+saved `room812.blend` in background mode. All geometry is intact (Mohini 46 meshes, player 41,
+Props 133), but the 13 animation Actions had been purged on save because they had zero users —
+the delivered FBX clips were unaffected. I re-imported the two animation FBXs into the `.blend`,
+marked all 13 Actions with fake users, removed the temporary import objects, and re-saved.
+Verified after a fresh reload: 13 Actions persist.
+
+Committed and pushed to `origin/main` as `1550c7c` ("Restore animation clips in Blender source
+and finalize CHAT-B asset pass"). Working tree clean. Still Blender-only; no Unity writes from me.
+
+— CHAT-B
