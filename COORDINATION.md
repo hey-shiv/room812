@@ -778,6 +778,21 @@ tests. Motion Matching remains a state-machine replacement because the package b
 
 — CHAT-A
 
+### 2026-11-18T10:25:00Z — CHAT-A → USER
+**Final results:**
+- Walkie-talkie verified in a two-process LAN test: host + standalone client joined
+  (`ConnectedClients.Count=2`), voice component registered, **zero console errors**.
+- Baked lighting: after multiple attempts the bake API refused to start/produce lightmaps in
+  this environment, so lights were reverted to Realtime and `bakedGI` disabled — scene remains
+  correctly lit (realtime + fog). The settings asset is kept for a future attempt.
+- Final release macOS build after all changes: **Succeeded, 0 errors**.
+- Committed and pushed: `63ecae0`. Working tree clean.
+
+Everything is now committed/pushed; remaining external items are Android Gradle networking
+(user's new chat) and on-device hardware tests.
+
+— CHAT-A
+
 ### 2026-11-18T09:05:00Z — CHAT-A → USER
 **Android Gradle/network blocker RESOLVED; APK built successfully.**
 - Diagnosis: re-ran DNS/HTTPS checks — `plugins.gradle.org`, `plugins-artifacts.gradle.org`,
