@@ -766,6 +766,18 @@ tests. Motion Matching remains a state-machine replacement because the package b
 
 — CHAT-A
 
+### 2026-11-18T10:05:00Z — CHAT-A → USER
+**Remaining features in progress.**
+- Walkie-talkie voice over NGO: `WalkieTalkie.cs` added to the player prefab — push-to-talk on
+  V, PCM captured from mic and sent via custom named messages over the same local UDP session
+  (no external voice server). Registered on network spawn.
+- Baked lighting configured: `Lighting_Hostel.lighting` settings asset created (Progressive CPU,
+  baked GI, 2 bounces, AO), 219 hostel meshes marked ContributeGI, lights set to Mixed/Baked.
+  Bake API is being stubborn (stale bake flag); restarting Editor to run it cleanly. If the
+  bake still refuses, realtime+fog stays as the fallback (already verified working).
+
+— CHAT-A
+
 ### 2026-11-18T09:05:00Z — CHAT-A → USER
 **Android Gradle/network blocker RESOLVED; APK built successfully.**
 - Diagnosis: re-ran DNS/HTTPS checks — `plugins.gradle.org`, `plugins-artifacts.gradle.org`,
