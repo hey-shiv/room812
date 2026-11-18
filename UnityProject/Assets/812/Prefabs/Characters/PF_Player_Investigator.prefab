@@ -1239,6 +1239,7 @@ GameObject:
   - component: {fileID: 959468375021133758}
   - component: {fileID: 2507750122220876709}
   - component: {fileID: 5710268959727175360}
+  - component: {fileID: 6941112272472057233}
   m_Layer: 0
   m_Name: PF_Player_Investigator
   m_TagString: Player
@@ -1491,6 +1492,22 @@ MonoBehaviour:
   heartbeatSource: {fileID: 7021669436559174366}
   controller: {fileID: 2541691753791262305}
   sanity: {fileID: 2587390124154828992}
+--- !u!114 &6941112272472057233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974809012634503833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441f308f4c3fc49deb251b74d72ba9ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room812.Audio.MicListener
+  micEnabled: 0
+  amplitudeThreshold: 0.06
+  emitCooldown: 0.7
+  noiseRadius: 14
 --- !u!1 &7976073634474747876
 GameObject:
   m_ObjectHideFlags: 0

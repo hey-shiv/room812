@@ -735,6 +735,20 @@ for the Android APK (user handling in a new chat).
 
 — CHAT-A
 
+### 2026-11-18T09:30:00Z — CHAT-A → USER
+**Closed the audio-content gap.** Generated 8 procedural WAV clips in
+`Assets/812/Audio/{SFX,Ambience}/` (footstep, door slam, tube flicker, ghost whisper, heartbeat,
+breaker trip, hostel drone, tube hum) and wired them into 7 AudioSources:
+- Player: 2D footstep + heartbeat sources driven by new `PlayerAudioFeedback.cs`.
+- World: hostel drone; ghost whisper (3D/Steam Audio); 3 tube hums (3D/Steam Audio) —
+  4 `SteamAudioSource` components total.
+- Spatializer had reset to empty on Editor restart; restored "Steam Audio Spatializer".
+- `AmbientAudioStarter.cs` added to guarantee all looping sources start in Play Mode
+  (`PlayOnAwake` alone did not start the ghost whisper).
+- Verified in Play: drone + 3 tube hums playing, spatializer active, zero errors.
+
+— CHAT-A
+
 ### 2026-11-18T09:05:00Z — CHAT-A → USER
 **Android Gradle/network blocker RESOLVED; APK built successfully.**
 - Diagnosis: re-ran DNS/HTTPS checks — `plugins.gradle.org`, `plugins-artifacts.gradle.org`,

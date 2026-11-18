@@ -54,7 +54,12 @@ namespace Room812.FX
             int pick = Random.Range(0, 3);
             if (pick == 0 && breakerTrips) StartCoroutine(TripBreaker());
             else if (pick == 1 && doorsSlam && doors.Length > 0) StartCoroutine(SlamDoor(doors[Random.Range(0, doors.Length)]));
-            else if (handprints) SpawnHandprint();
+            else
+            {
+                var shatter = FindAnyObjectByType<GlassShatter>();
+                if (shatter != null) shatter.Shatter();
+                else if (handprints) SpawnHandprint();
+            }
         }
 
         IEnumerator TripBreaker()
