@@ -18,10 +18,18 @@ namespace Room812.FX
             public Vector3 baseScale;
         }
 
+        public struct DecalMark
+        {
+            public Vector3 position;
+            public float time;
+            public string type;
+        }
+
         static DecalSpawner instance;
+        public static readonly List<DecalMark> RecentMarks = new List<DecalMark>();
         readonly List<Decal> active = new List<Decal>();
 
-        void Awake() { instance = this; }
+        void Awake() { instance = this; RecentMarks.Clear(); }
 
         public static GameObject Spawn(Vector3 position, Vector3 normal, Color color, float size, float life)
         {
@@ -71,11 +79,15 @@ namespace Room812.FX
             go.transform.localScale = Vector3.one * size;
             go.GetComponent<Renderer>().material = mat;
             instance.active.Add(new Decal { go = go, mat = mat, life = life, maxLife = life, baseScale = Vector3.one * size });
+            if (materialName.Contains("Blood") || materialName.Contains("Wet"))
+                RecentMarks.Add(new DecalMark { position = position, time = Time.time, type = materialName });
             return go;
         }
 
         void Update()
         {
+            for (int i = RecentMarks.Count - 1; i >= 0; i--)
+                if (Time.time - RecentMarks[i].time > 120f) RecentMarks.RemoveAt(i);
             for (int i = active.Count - 1; i >= 0; i--)
             {
                 var d = active[i];

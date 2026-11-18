@@ -76,8 +76,10 @@ namespace Room812.AI
                     agent.speed = patrolSpeed;
                     if (!blackboard.hasTarget || Vector3.Distance(transform.position, blackboard.target) < 1f)
                     {
+                        Vector3 track;
+                        bool foundTrack = FindRecentTrack(out track);
                         var spot = blackboard.MostWeightedSpot();
-                        blackboard.target = spot != null ? spot.position : room812Position + Random.insideUnitSphere * 4f;
+                        blackboard.target = foundTrack ? track : (spot != null ? spot.position : room812Position + Random.insideUnitSphere * 4f);
                         blackboard.target.y = transform.position.y;
                         blackboard.hasTarget = true;
                         GoTo(blackboard.target);
@@ -117,6 +119,24 @@ namespace Room812.AI
                     if (stateTimer > 10f) SetState(GhostState.Patrol);
                     break;
             }
+        }
+
+        bool FindRecentTrack(out Vector3 position)
+        {
+            position = Vector3.zero;
+            float newest = -1f;
+            foreach (var mark in Room812.FX.DecalSpawner.RecentMarks)
+            {
+                float age = Time.time - mark.time;
+                if (age > 60f) continue;
+                if (Vector3.Distance(transform.position, mark.position) > 25f) continue;
+                if (mark.time > newest)
+                {
+                    newest = mark.time;
+                    position = mark.position;
+                }
+            }
+            return newest >= 0f;
         }
 
         void GoTo(Vector3 point)
