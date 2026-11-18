@@ -749,6 +749,23 @@ breaker trip, hostel drone, tube hum) and wired them into 7 AudioSources:
 
 — CHAT-A
 
+### 2026-11-18T09:50:00Z — CHAT-A → USER
+**Final completion pass + git workflow.**
+- Added mic input (`MicListener.cs`, toggle M) feeding `NoiseBus` so the ghost hears whispers.
+- Diegetic tablet now has a real floorplan (3 floors, 15 rooms, Room 812 highlighted) with a
+  live player dot driven by `FloorplanTracker.cs`.
+- Added `GlassShatter.cs` (window panes hide + rigidbody shard burst) and wired it into
+  poltergeist events; ghost now tracks recent blood/wet decals via `DecalSpawner.RecentMarks`.
+- Build caught a real issue: microphone usage description was empty — set it in
+  `ProjectSettings/ProjectSettings.asset`. Final **release macOS build succeeded, 0 errors**.
+- **Git workflow is now active**: every batch is committed and pushed to `origin/main`
+  (commits `ff84fdb`, `e203228`, `674ef37`). Working tree clean.
+
+Still external: Android Gradle network access (user fixing in new chat) and on-device hardware
+tests. Motion Matching remains a state-machine replacement because the package breaks builds.
+
+— CHAT-A
+
 ### 2026-11-18T09:05:00Z — CHAT-A → USER
 **Android Gradle/network blocker RESOLVED; APK built successfully.**
 - Diagnosis: re-ran DNS/HTTPS checks — `plugins.gradle.org`, `plugins-artifacts.gradle.org`,
