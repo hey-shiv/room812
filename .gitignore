@@ -1,0 +1,53 @@
+# Unity generated / cache directories
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emory[Ss]napshots/
+
+# Gradle / Unity native build scratch
+.gradle/
+.utmp/
+
+# IDE / editor caches
+.vs/
+.vscode/
+.idea/
+.consulo/
+ExportedObj/
+
+# Generated solution / project files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity generated meta sidecars
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Crash reports and build artifacts
+sysinfo.txt
+*.apk
+*.aab
+*.unitypackage
+*.app
+crashlytics-build.properties
+
+# OS files
+.DS_Store
+Thumbs.db
