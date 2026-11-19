@@ -2883,6 +2883,7 @@ GameObject:
   m_Component:
   - component: {fileID: 162178732}
   - component: {fileID: 162178733}
+  - component: {fileID: 162178734}
   m_Layer: 0
   m_Name: TabletCanvas
   m_TagString: Untagged
@@ -2904,6 +2905,7 @@ RectTransform:
   m_Children:
   - {fileID: 689826932}
   - {fileID: 899027985}
+  - {fileID: 1261249533}
   m_Father: {fileID: 888870919}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2935,6 +2937,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &162178734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162178731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1a4191c9d9348f489ae9cb4cd5cd1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room812.UI.PlayerVitalsUI
+  readout: {fileID: 1261249534}
+  sanity: {fileID: 0}
 --- !u!1 &170996148
 GameObject:
   m_ObjectHideFlags: 0
@@ -22457,6 +22473,7 @@ GameObject:
   - component: {fileID: 1250284107}
   - component: {fileID: 1250284106}
   - component: {fileID: 1250284105}
+  - component: {fileID: 1250284108}
   m_Layer: 0
   m_Name: Wear_Frost_1
   m_TagString: Untagged
@@ -22536,6 +22553,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1250284108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250284104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d63dc0b4987442b4ad4afc37e3dc965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room812.FX.FrostCreeper
+  fullSizeSeconds: 8
+  fullScale: {x: 0.8, y: 0.6, z: 1}
 --- !u!1 &1255871627
 GameObject:
   m_ObjectHideFlags: 0
@@ -22718,6 +22749,85 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.5, y: 3.8, z: 4.7}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1261249532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261249533}
+  - component: {fileID: 1261249535}
+  - component: {fileID: 1261249534}
+  m_Layer: 0
+  m_Name: VitalsText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1261249533
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261249532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 162178732}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 118}
+  m_SizeDelta: {x: 400, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1261249534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261249532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6, g: 1, b: 0.75, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: SANITY 100%  |  HR 72 BPM  STABLE
+--- !u!222 &1261249535
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261249532}
+  m_CullTransparentMesh: 1
 --- !u!1 &1282082484
 GameObject:
   m_ObjectHideFlags: 0
@@ -31407,6 +31517,7 @@ GameObject:
   - component: {fileID: 1879264761}
   - component: {fileID: 1879264760}
   - component: {fileID: 1879264759}
+  - component: {fileID: 1879264762}
   m_Layer: 0
   m_Name: Wear_Frost_2
   m_TagString: Untagged
@@ -31486,6 +31597,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879264762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879264758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d63dc0b4987442b4ad4afc37e3dc965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room812.FX.FrostCreeper
+  fullSizeSeconds: 8
+  fullScale: {x: 0.8, y: 0.6, z: 1}
 --- !u!1 &1880639733
 GameObject:
   m_ObjectHideFlags: 0
@@ -32238,6 +32363,7 @@ GameObject:
   - component: {fileID: 1922033021}
   - component: {fileID: 1922033020}
   - component: {fileID: 1922033019}
+  - component: {fileID: 1922033022}
   m_Layer: 0
   m_Name: Wear_Frost_0
   m_TagString: Untagged
@@ -32317,6 +32443,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1922033022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922033018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d63dc0b4987442b4ad4afc37e3dc965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room812.FX.FrostCreeper
+  fullSizeSeconds: 8
+  fullScale: {x: 0.8, y: 0.6, z: 1}
 --- !u!1 &1924865029
 GameObject:
   m_ObjectHideFlags: 0
@@ -33388,6 +33528,7 @@ GameObject:
   - component: {fileID: 1969504516}
   - component: {fileID: 1969504517}
   - component: {fileID: 1969504518}
+  - component: {fileID: 1969504519}
   m_Layer: 0
   m_Name: Player_Investigator
   m_TagString: Player
@@ -33669,6 +33810,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room812.Network.WalkieTalkie
   ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &1969504519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1969504505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b93fa26e0f35441178c993f6cfe25438, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room812.Core.CharacterDamageMask
+  bodyRenderers: []
+  bloodTint: {r: 0.42, g: 0.05, b: 0.05, a: 1}
+  maxTint: 0.65
 --- !u!1 &1975758291
 GameObject:
   m_ObjectHideFlags: 0
@@ -34926,6 +35082,7 @@ GameObject:
   - component: {fileID: 2079562278}
   - component: {fileID: 2079562277}
   - component: {fileID: 2079562276}
+  - component: {fileID: 2079562279}
   m_Layer: 0
   m_Name: Wear_Frost_3
   m_TagString: Untagged
@@ -35005,6 +35162,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079562279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079562275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d63dc0b4987442b4ad4afc37e3dc965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room812.FX.FrostCreeper
+  fullSizeSeconds: 8
+  fullScale: {x: 0.8, y: 0.6, z: 1}
 --- !u!1 &2083712423
 GameObject:
   m_ObjectHideFlags: 0
