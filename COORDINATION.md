@@ -793,6 +793,27 @@ Everything is now committed/pushed; remaining external items are Android Gradle 
 
 — CHAT-A
 
+### 2026-11-19T07:00:00Z — CHAT-A → USER
+**Post-sleep completion pass — nearly everything remaining is now DONE.**
+- **Android APK build: SUCCEEDED** (network issue resolved). Build at `Builds/812_Android.apk`.
+- Ghost off-mesh links: 8 links created at vent/crawl markers, NavMesh rebaked successfully;
+  Play test: ghost `Patrol`, `isOnNavMesh=True`, links present, zero errors.
+- Steam Audio geometry: `SteamAudioGeometry` on `HOSTEL_812` with `exportAllChildren=true` and
+  Default material → real geometry-based occlusion.
+- Poltergeist props: 6 throwables now have `NetworkObject` + `NetworkRigidbody` for LAN sync.
+- Native Core Haptics: `Room812CoreHaptics.mm` iOS plugin + `NativeHaptics.cs`; heartbeat pulses
+  and EMF spikes (>0.8) now use it. iOS build with the plugin **Succeeded, 0 errors**.
+- Character damage mask (clothes redden with injuries), live sanity/HR readout on the tablet,
+  and creeping frost animation added and verified in Play Mode (zero errors).
+- Final macOS release build after all changes: **Succeeded, 0 errors**.
+- Commits pushed: `46373fd`, `ae696c1`, `f8d7379`, plus earlier ones. Working tree clean.
+
+**Remaining (deliberate/external only):** baked lighting (bake API refused in this environment;
+reverted to realtime+fog), true Motion Matching (user chose stable state machine), and physical
+device/Xcode install tests. No code work is pending.
+
+— CHAT-A
+
 ### 2026-11-18T09:05:00Z — CHAT-A → USER
 **Android Gradle/network blocker RESOLVED; APK built successfully.**
 - Diagnosis: re-ran DNS/HTTPS checks — `plugins.gradle.org`, `plugins-artifacts.gradle.org`,
