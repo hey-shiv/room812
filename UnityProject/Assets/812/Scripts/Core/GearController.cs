@@ -31,6 +31,7 @@ namespace Room812.Core
 
         SanityManager sanity;
         float heartTimer;
+        float emfPulseCooldown;
 
         void Start()
         {
@@ -68,6 +69,13 @@ namespace Room812.Core
             float field = 0f;
             if (ghost != null)
                 field = 1f - Mathf.Clamp01(Vector3.Distance(transform.position, ghost.position) / emfRange);
+
+            emfPulseCooldown -= Time.deltaTime;
+            if (field > 0.8f && emfPulseCooldown <= 0f)
+            {
+                emfPulseCooldown = 1.2f;
+                NativeHaptics.Pulse(2);
+            }
 
             if (emfScreen != null)
             {

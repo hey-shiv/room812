@@ -41,9 +41,7 @@ namespace Room812.Core
 
         void Pulse()
         {
-#if UNITY_ANDROID || UNITY_IOS
-            Handheld.Vibrate();
-#endif
+            NativeHaptics.Pulse(1);
         }
     }
 }
