@@ -141,6 +141,43 @@ No code work is pending. Git is clean and pushed (`ee2e068`).
 
 ---
 
+## 8. Mohini visual rebuild (Nov 20 2026)
+
+The previous `SK_Mohini` was a crude placeholder (glowing round eyes, exposed ribs,
+stitched mouth) that violated the authoritative reference and the negative design
+requirements. Replaced with a newly authored definitive model.
+
+**Source / generated assets** (outside Unity):
+- `tools/gen_textures.py` -> `assets/mohini/textures/` — 12 PBR maps. Face albedo is
+  derived from the actual reference pixels (lighting neutralised, pores/detail added),
+  so the facial identity matches the reference rather than being re-imagined.
+- `tools/build_mohini.py` -> `assets/mohini/SK_Mohini.blend` — face grid w/ projected
+  UVs, skull, body/arms/hands/fingers, dress, hair cards, eyes.
+- `tools/rig_export_mohini.py` -> `SK_Mohini_Rigged.blend` + `SK_Mohini.fbx` —
+  39-bone rig, 10 NLA animation clips, 3 LODs.
+
+**Unity integration** (`AgentScripts/*.cs`, run via `unity command --port 7800 script run`):
+- `Assets/812/Art/Characters/Ghost_Mohini/Definitive/` — FBX, 12 textures, 5 URP materials,
+  `AC_Mohini_Definitive.controller`.
+- `Assets/812/Prefabs/Characters/PF_Mohini_Definitive.prefab` — LODGroup + capsule collider.
+- `Assets/812/Scenes/Whitebox/Hostel_Whitebox.unity` — `/Ghost_Mohini` visual children
+  replaced by the new model; root AI/Netcode components preserved; root Animator pointed
+  at the new controller so `GhostAnimatorBridge` -> `GhostState` still drives it.
+- `Assets/812/Scenes/Mohini_Preview.unity` — standalone flashlight preview scene.
+
+**Verification**: `Screenshots/Mohini_Unity_Preview.png`,
+`assets/mohini/render/comparison_reference_vs_model.png`. Play Mode smoke test: 0 errors.
+
+**Known limitations / honest assessment**:
+- The face is a close match (reference-derived texture), but the body and hair are
+  procedurally modelled and read as simplified/mannequin-like rather than photorealistic.
+  A truly photoreal result would require sculpting/photogrammetry, not scripted geometry.
+- Hair cards are near-black but read as a solid mass under flashlight rather than
+  individual strands.
+- Materials use two-sided rendering to compensate for inward-wound procedural geometry.
+
+---
+
 ## 7. How to resume
 
 1. `cd /Users/shivashant/projects/room812 && git pull` and read this file + `COORDINATION.md`.
